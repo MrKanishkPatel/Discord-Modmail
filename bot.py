@@ -43,7 +43,7 @@ async def on_ready():
     bot_owner = bot_owner.owner
     print("Bot has logged in!")
     if default_config.get("BotDMOwnerOnRestart"):
-        await bot_owner.send("The Modmail Bot has Restared! \nNote: You specified for the bot to message you on restart. To disable, Change BotDMOwnerOnRestart in config.py to False.")
+        await bot_owner.send("The ContactKanishk has Restared! \nNote: You specified for the bot to message you on restart. To disable, Change BotDMOwnerOnRestart in config.py to False.")
     await bot.change_presence(activity=discord.Game(name=default_config.get("BotPlayingStatus")))
     if default_config.get("BotBoundToGuilds"):
         for guild in bot.guilds:
@@ -102,8 +102,8 @@ async def help(ctx):
       help1.add_field(name="**{}close**".format(prefix), inline=False, value="Close a thread.")
       help1.add_field(name="**{}logs <uuid>**".format(prefix), inline=False, value="Get modmail logs for a user.")
       help1.add_field(name="**{}eval <code>**".format(prefix), inline=False, value="Evaluate a code.")
-      help1.add_field(name="**{}blacklist <user>**".format(prefix), inline=False, value="Blacklist a user from using modmail. **If user has an existing thread, he/she is allowed to finish the thread.**")
-      help1.add_field(name="**{}unblacklist <code>**".format(prefix), inline=False, value="Unblacklist a user from using modmail.")
+      help1.add_field(name="**{}blacklist <user>**".format(prefix), inline=False, value="Blacklist a user from using ContactKanishk. **If user has an existing thread, he/she is allowed to finish the thread.**")
+      help1.add_field(name="**{}unblacklist <code>**".format(prefix), inline=False, value="Unblacklist a user from using ContactKanishk.")
       help1.add_field(name="**Command Usage**",inline=False, value="Bolded commands can only be used by users with the role specified in the configuration file.")
       help1.set_footer(text="IngeniousMail™ V1.0 - Soruce code is available in Github!")
       await ctx.send(embed=help1)
@@ -326,7 +326,7 @@ async def r(ctx,*,message=None):
         return
     thread = await CheckThread(ctx.message.channel)
     if thread is None:
-        await ctx.send("This is not a modmail thread!")
+        await ctx.send("This is not a ContactKanishk thread!")
         return
     print(thread)  
     number = await ReplyTo(thread2=thread,message=FakeMessage(content=message,attachments=ctx.message.attachments),mod=ctx.author)
@@ -357,7 +357,7 @@ async def close(ctx):
     file.write(str(current))
     file.close()
     await ctx.channel.delete()
-    await thread.user.send(f"Your modmail thread has been closed by {ctx.message.author.name}#{ctx.message.author.discriminator}. Please reply to start a new therad.")
+    await thread.user.send(f"Your ContactKanishk thread has been closed by {ctx.message.author.name}#{ctx.message.author.discriminator}. Please reply to start a new therad.")
 
 
 @bot.command()
